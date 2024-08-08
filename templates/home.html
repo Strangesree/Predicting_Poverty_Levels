@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Crop Recommender by Noor Saeed</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        h1 {
+            color: mediumseagreen;
+            text-align: left;
+        }
+
+        .warning {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .card {
+            margin-left: 410px;
+            margin-top: 20px;
+            color: white;
+        }
+
+        .container {
+            font-weight: bold;
+            padding-bottom: 10px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body style="background:#BCBBB8">
+    <!--=======================navbar=====================================================-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Poverty Prediction</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    0
+    3
+
+    <!--===============================================================================-->
+    <div class="container my-5 mt-5 bg-light">
+        <h1>Poverty Prediction<span class="text-success"></span></h1>
+
+        <form method="POST" action="{{ url_for('predict') }}" class="mt-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="rooms">Rooms</label>
+                    <input type="number" id="rooms" name="rooms" placeholder="Enter Rooms" class="form-control"
+                        required>
+                </div>
+                <div class="col-md-4">
+                    <label for="males_12_younger">Males 12 younger</label>
+                    <input type="number" id="males_12_younger" name="males_12_younger"
+                        placeholder="Enter males_12_younger" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="males_12_older">Males 12 older</label>
+                    <input type="number" id="males_12_older" name="males_12_older" placeholder="Enter males_12_older"
+                        class="form-control" required>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <label for="total_males">Total males</label>
+                    <input type="number" id="total_males" name="total_males" placeholder="Enter total_males"
+                        class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="females_12_younger">Females 12 younger</label>
+                    <input type="number" id="females_12_younger" name="females_12_younger"
+                        placeholder="Enter females_12_younger" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="females_12_older">Females 12 older</label>
+                    <input type="number" id="females_12_older" name="females_12_older"
+                        placeholder="Enter females_12_older" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <label for="total_females">Total females</label>
+                    <input type="number" id="total_females" name="total_females" placeholder="Enter total_females"
+                        class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="persons_12_younger">Persons 12 younger</label>
+                    <input type="number" id="persons_12_younger" name="persons_12_younger"
+                        placeholder="Enter persons_12_younger" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="persons_12_older">Persons 12 older</label>
+                    <input type="number" id="persons_12_older" name="persons_12_older"
+                        placeholder="Enter persons_12_older" class="form-control" required>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <label for="ceiling">Ceiling</label>
+                    <input type="number" id="ceiling" name="ceiling" placeholder="Enter ceiling" class="form-control"
+                        required>
+                </div>
+                <div class="col-md-4">
+                    <label for="num_children">No of children</label>
+                    <input type="number" id="num_children" name="num_children" placeholder="Enter num_children"
+                        class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="overcrowding">Overcrowding</label>
+                    <input type="number" step="0.01" id="overcrowding" name="overcrowding"
+                        placeholder="Enter overcrowding" class="form-control" required>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <label for="years_of_schooling">Years of schooling</label>
+                    <input type="number" id="years_of_schooling" name="years_of_schooling"
+                        placeholder="Enter years_of_schooling" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="walls">Walls</label>
+                    <input type="number" id="walls" name="walls" placeholder="Enter walls" class="form-control"
+                        required>
+                </div>
+                <div class="col-md-4">
+                    <label for="roof">Roof</label>
+                    <input type="number" id="roof" name="roof" placeholder="Enter roof" class="form-control" required>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <label for="floor">Floor</label>
+                    <input type="number" id="floor" name="floor" placeholder="Enter floor" class="form-control"
+                        required>
+                </div>
+
+            </div>
+            <div class="row mt-4">
+
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary btn-lg">Get Prediction</button>
+                </div>
+            </div>
+        </form>
+
+        {% if prediction %}
+        <div class="card bg-dark" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Class belongs</h5>
+                <p class="card-text">{{prediction }}</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
